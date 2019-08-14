@@ -75,6 +75,15 @@ NS_ASSUME_NONNULL_END
 	return self;
 }
 
+#pragma mark - Deallocation
+
+- (void)dealloc
+{
+	[_byWindow enumerateKeysAndObjectsUsingBlock:^(NSValue *key, CBHWindowManagerContainer *container, BOOL *stop) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[container window]];
+	}];
+}
+
 
 #pragma mark - Window Management
 

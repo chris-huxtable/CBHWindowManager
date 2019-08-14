@@ -135,6 +135,16 @@
 	XCTAssertNil([[CBHWindowManager sharedManager] windowForKey:@"Missing Key"], @"There should be no window for this key.");
 }
 
+- (void)test_dealloc
+{
+	CBHWindowManager *customManager = [[CBHWindowManager alloc] init];
+
+	[customManager manageWindow:_window];
+	XCTAssertTrue([customManager isManagingWindow:_window], @"Window should be managed.");
+
+	customManager = nil;
+}
+
 
 #pragma mark - Window Controllers
 
