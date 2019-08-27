@@ -13,8 +13,6 @@
 		83015D2523032073008CC111 /* CBHWindowManagerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83015D2323032073008CC111 /* CBHWindowManagerContainer.m */; };
 		83015D272303209C008CC111 /* CBHWindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 83015D262303209B008CC111 /* CBHWindowManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83015D2B230323C6008CC111 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 83015D28230323C6008CC111 /* LICENSE */; };
-		83015D2C230323C6008CC111 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 83015D29230323C6008CC111 /* README.md */; };
-		83015D2D230323C6008CC111 /* CBHCollectionKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 83015D2A230323C6008CC111 /* CBHCollectionKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +37,7 @@
 		83015D262303209B008CC111 /* CBHWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHWindowManager.h; sourceTree = "<group>"; };
 		83015D28230323C6008CC111 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		83015D29230323C6008CC111 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		83015D2A230323C6008CC111 /* CBHCollectionKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CBHCollectionKit.podspec; sourceTree = "<group>"; };
+		83015D2A230323C6008CC111 /* CBHWindowManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CBHWindowManager.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +62,9 @@
 		83015CFA23031A24008CC111 = {
 			isa = PBXGroup;
 			children = (
-				83015D2A230323C6008CC111 /* CBHCollectionKit.podspec */,
-				83015D28230323C6008CC111 /* LICENSE */,
 				83015D29230323C6008CC111 /* README.md */,
+				83015D2A230323C6008CC111 /* CBHWindowManager.podspec */,
+				83015D28230323C6008CC111 /* LICENSE */,
 				83015D0623031A24008CC111 /* CBHWindowManager */,
 				83015D1123031A24008CC111 /* CBHWindowManagerTests */,
 				83015D0523031A24008CC111 /* Products */,
@@ -194,9 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83015D2C230323C6008CC111 /* README.md in Resources */,
 				83015D2B230323C6008CC111 /* LICENSE in Resources */,
-				83015D2D230323C6008CC111 /* CBHCollectionKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +239,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = YES;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -290,7 +288,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -345,10 +343,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = YES;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -392,7 +392,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

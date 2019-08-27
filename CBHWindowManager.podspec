@@ -12,7 +12,6 @@ Pod::Spec.new do |spec|
   spec.author                 = { "Chris Huxtable" => "chris@huxtable.ca" }
   spec.social_media_url       = "https://twitter.com/@Chris_Huxtable"
 
-  #spec.ios.deployment_target = '9.0'
   spec.osx.deployment_target  = '10.10'
 
   spec.source                 = { :git => "https://github.com/chris-huxtable/CBHWindowManager.git", :tag => "v#{spec.version}" }
