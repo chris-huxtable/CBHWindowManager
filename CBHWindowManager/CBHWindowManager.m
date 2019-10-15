@@ -20,6 +20,7 @@
 
 #import "CBHWindowManagerContainer.h"
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CBHWindowManager ()
@@ -30,13 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
-#pragma mark - Container Management
+#pragma mark Container Management
 
 - (void)manageContainer:(CBHWindowManagerContainer *)container;
 - (void)unmanageContainer:(CBHWindowManagerContainer *)container;
 
 
-#pragma mark - Notification Handlers
+#pragma mark Notification Handlers
 
 - (void)windowWillClose:(NSNotification *)notification;
 
@@ -47,8 +48,7 @@ NS_ASSUME_NONNULL_END
 
 @implementation CBHWindowManager
 
-
-#pragma mark - Singleton
+#pragma mark Singleton
 
 + (instancetype)sharedManager
 {
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark - Initialization
+#pragma mark Initialization
 
 - (instancetype)init
 {
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_END
 	return self;
 }
 
-#pragma mark - Deallocation
+#pragma mark Deallocation
 
 - (void)dealloc
 {
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark - Window Management
+#pragma mark Window Management
 
 - (void)manageWindow:(NSWindow *)window
 {
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark - Controller Management
+#pragma mark Controller Management
 
 - (void)manageController:(NSWindowController *)controller
 {
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark - Container Management
+#pragma mark Container Management
 
 - (void)manageContainer:(CBHWindowManagerContainer *)container
 {
@@ -176,7 +176,7 @@ NS_ASSUME_NONNULL_END
 	if ( key ) { [_byKey removeObjectForKey:key]; }
 }
 
-#pragma mark - Notification Handlers
+#pragma mark Notification Handlers
 
 - (void)windowWillClose:(NSNotification *)notification
 {
@@ -191,7 +191,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark - Queries
+#pragma mark Queries
 
 - (NSWindowController *)controllerForKey:(NSString *)key
 {
