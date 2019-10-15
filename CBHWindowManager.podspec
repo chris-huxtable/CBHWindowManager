@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                   = "CBHWindowManager"
-  spec.version                = "0.1.0"
+  spec.version                = "1.0.0"
   spec.module_name            = "CBHWindowManager"
 
   spec.summary                = "An easy-to-use singleton which manages `NSWindow` and `NSWindowController` objects"
