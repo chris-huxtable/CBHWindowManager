@@ -1,4 +1,4 @@
-//  CBHWindowManagerContainer.h
+//  _CBHWindowManagerContainer.h
 //  CBHWindowManager
 //
 //  Created by Christian Huxtable <chris@huxtable.ca>, April 2019.

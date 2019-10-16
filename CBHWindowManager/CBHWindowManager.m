@@ -18,7 +18,7 @@
 
 #import "CBHWindowManager.h"
 
-#import "CBHWindowManagerContainer.h"
+#import "_CBHWindowManagerContainer.h"
 
 
 NS_ASSUME_NONNULL_BEGIN

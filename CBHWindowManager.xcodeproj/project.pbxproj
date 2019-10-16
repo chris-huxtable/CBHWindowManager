@@ -10,7 +10,7 @@
 		83015D0E23031A24008CC111 /* CBHWindowManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83015D0423031A24008CC111 /* CBHWindowManager.framework */; };
 		83015D1323031A24008CC111 /* CBHWindowManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83015D1223031A24008CC111 /* CBHWindowManagerTests.m */; };
 		83015D2423032073008CC111 /* CBHWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83015D2023032073008CC111 /* CBHWindowManager.m */; };
-		83015D2523032073008CC111 /* CBHWindowManagerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83015D2323032073008CC111 /* CBHWindowManagerContainer.m */; };
+		83015D2523032073008CC111 /* _CBHWindowManagerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83015D2323032073008CC111 /* _CBHWindowManagerContainer.m */; };
 		83015D272303209C008CC111 /* CBHWindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 83015D262303209B008CC111 /* CBHWindowManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83015D2B230323C6008CC111 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 83015D28230323C6008CC111 /* LICENSE */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,8 @@
 		83015D1223031A24008CC111 /* CBHWindowManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHWindowManagerTests.m; sourceTree = "<group>"; };
 		83015D1423031A24008CC111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83015D2023032073008CC111 /* CBHWindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHWindowManager.m; sourceTree = "<group>"; };
-		83015D2223032073008CC111 /* CBHWindowManagerContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBHWindowManagerContainer.h; sourceTree = "<group>"; };
-		83015D2323032073008CC111 /* CBHWindowManagerContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHWindowManagerContainer.m; sourceTree = "<group>"; };
+		83015D2223032073008CC111 /* _CBHWindowManagerContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _CBHWindowManagerContainer.h; sourceTree = "<group>"; };
+		83015D2323032073008CC111 /* _CBHWindowManagerContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _CBHWindowManagerContainer.m; sourceTree = "<group>"; };
 		83015D262303209B008CC111 /* CBHWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHWindowManager.h; sourceTree = "<group>"; };
 		83015D28230323C6008CC111 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		83015D29230323C6008CC111 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 			children = (
 				83015D262303209B008CC111 /* CBHWindowManager.h */,
 				83015D2023032073008CC111 /* CBHWindowManager.m */,
-				83015D2223032073008CC111 /* CBHWindowManagerContainer.h */,
-				83015D2323032073008CC111 /* CBHWindowManagerContainer.m */,
+				83015D2223032073008CC111 /* _CBHWindowManagerContainer.h */,
+				83015D2323032073008CC111 /* _CBHWindowManagerContainer.m */,
 				83015D0823031A24008CC111 /* Info.plist */,
 			);
 			path = CBHWindowManager;
@@ -211,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83015D2423032073008CC111 /* CBHWindowManager.m in Sources */,
-				83015D2523032073008CC111 /* CBHWindowManagerContainer.m in Sources */,
+				83015D2523032073008CC111 /* _CBHWindowManagerContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

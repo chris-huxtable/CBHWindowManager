@@ -18,8 +18,8 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc           = true
 
-  spec.public_header_files    = 'CBHWindowManager/CBHWindowManager.h'
-  spec.private_header_files   = 'CBHWindowManager/CBHWindowManagerContainer.h'
+  spec.public_header_files    = 'CBHWindowManager/*.h'
+  spec.private_header_files   = 'CBHWindowManager/_*.h'
   spec.source_files           = "CBHWindowManager/*.{h,m}"
 
 end
