@@ -21,21 +21,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CBHWindowManagerContainer ()
+@interface _CBHWindowManagerContainer ()
 {
 	NSWindow *_window;
 	NSWindowController * __nullable _controller;
 	NSString * __nullable _key;
 	BOOL _releaseOnClose;
 }
+
 @end
 
 NS_ASSUME_NONNULL_END
 
 
-@implementation CBHWindowManagerContainer
+@implementation _CBHWindowManagerContainer
 
-#pragma mark Factories
+#pragma mark - Factories
 
 + (instancetype)containerWithWindow:(NSWindow *)window controller:(nullable NSWindowController *)controller key:(nullable NSString *)key andShouldReleaseOnClose:(BOOL)releaseOnClose
 {
@@ -43,7 +44,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark Initialization
+#pragma mark - Initialization
 
 - (instancetype)initWithWindow:(NSWindow *)window controller:(nullable NSWindowController *)controller key:(nullable NSString *)key andShouldReleaseOnClose:(BOOL)releaseOnClose
 {
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark Properties
+#pragma mark - Properties
 
 @synthesize window = _window;
 @synthesize controller = _controller;
