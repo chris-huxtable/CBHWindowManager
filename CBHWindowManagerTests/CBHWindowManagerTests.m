@@ -35,7 +35,7 @@
 
 @implementation CBHWindowManagerTests
 
-#pragma mark Overrides
+#pragma mark - Overrides
 
 - (void)setUp
 {
@@ -54,7 +54,7 @@
 }
 
 
-#pragma mark Windows
+#pragma mark - Windows
 
 - (void)test_addWindow
 {
@@ -145,7 +145,7 @@
 }
 
 
-#pragma mark Window Controllers
+#pragma mark - Window Controllers
 
 - (void)test_addController
 {

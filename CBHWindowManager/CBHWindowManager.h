@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CBHWindowManager : NSObject
 
 
-#pragma mark Shared Manager
+#pragma mark - Shared Manager
 
 /**
  * @name Shared Manager
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManager;
 
 
-#pragma mark Window Management
+#pragma mark - Window Management
 
 /**
  * @name Window Management
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unmanageWindow:(NSWindow *)window;
 
 
-#pragma mark Controller Management
+#pragma mark - Controller Management
 
 /**
  * @name Controller Management
@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unmanageController:(NSWindowController *)controller;
 
 
-#pragma mark Queries
+#pragma mark - Queries
 
 /** Have the receiver retrieve the managed window controller for a given key.
  *
