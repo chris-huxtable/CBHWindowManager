@@ -25,19 +25,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBHWindowManager ()
 {
-	NSMutableDictionary<NSString *, CBHWindowManagerContainer *> *_byKey;
-	NSMutableDictionary<NSValue *, CBHWindowManagerContainer *> *_byWindow;
-	NSMutableDictionary<NSValue *, CBHWindowManagerContainer *> *_byController;
+	NSMutableDictionary<NSString *, _CBHWindowManagerContainer *> *_byKey;
+	NSMutableDictionary<NSValue *, _CBHWindowManagerContainer *> *_byWindow;
+	NSMutableDictionary<NSValue *, _CBHWindowManagerContainer *> *_byController;
 }
 
 
-#pragma mark Container Management
+#pragma mark - Container Management
 
-- (void)manageContainer:(CBHWindowManagerContainer *)container;
-- (void)unmanageContainer:(CBHWindowManagerContainer *)container;
+- (void)manageContainer:(_CBHWindowManagerContainer *)container;
+- (void)unmanageContainer:(_CBHWindowManagerContainer *)container;
 
 
-#pragma mark Notification Handlers
+#pragma mark - Notification Handlers
 
 - (void)windowWillClose:(NSNotification *)notification;
 
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_END
 
 @implementation CBHWindowManager
 
-#pragma mark Singleton
+#pragma mark - Singleton
 
 + (instancetype)sharedManager
 {
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark Initialization
+#pragma mark - Initialization
 
 - (instancetype)init
 {
@@ -75,17 +75,17 @@ NS_ASSUME_NONNULL_END
 	return self;
 }
 
-#pragma mark Deallocation
+#pragma mark - Deallocation
 
 - (void)dealloc
 {
-	[_byWindow enumerateKeysAndObjectsUsingBlock:^(NSValue *key, CBHWindowManagerContainer *container, BOOL *stop) {
+	[_byWindow enumerateKeysAndObjectsUsingBlock:^(NSValue *key, _CBHWindowManagerContainer *container, BOOL *stop) {
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[container window]];
 	}];
 }
 
 
-#pragma mark Window Management
+#pragma mark - Window Management
 
 - (void)manageWindow:(NSWindow *)window
 {
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_END
 
 - (void)manageWindow:(NSWindow *)window shouldRelease:(BOOL)shouldRelease
 {
-	[self manageContainer:[CBHWindowManagerContainer containerWithWindow:window controller:nil key:nil andShouldReleaseOnClose:shouldRelease]];
+	[self manageContainer:[_CBHWindowManagerContainer containerWithWindow:window controller:nil key:nil andShouldReleaseOnClose:shouldRelease]];
 }
 
 - (void)manageWindow:(NSWindow *)window withKey:(NSString *)key
@@ -104,20 +104,20 @@ NS_ASSUME_NONNULL_END
 
 - (void)manageWindow:(NSWindow *)window withKey:(NSString *)key shouldRelease:(BOOL)shouldRelease
 {
-	[self manageContainer:[CBHWindowManagerContainer containerWithWindow:window controller:nil key:key andShouldReleaseOnClose:shouldRelease]];
+	[self manageContainer:[_CBHWindowManagerContainer containerWithWindow:window controller:nil key:key andShouldReleaseOnClose:shouldRelease]];
 }
 
 
 - (void)unmanageWindow:(NSWindow *)window
 {
-	CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
+	_CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
 	if ( !container ) { return; }
 
 	[self unmanageContainer:container];
 }
 
 
-#pragma mark Controller Management
+#pragma mark - Controller Management
 
 - (void)manageController:(NSWindowController *)controller
 {
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_END
 - (void)manageController:(NSWindowController *)controller shouldRelease:(BOOL)shouldRelease
 {
 	NSWindow *window = [controller window];
-	[self manageContainer:[CBHWindowManagerContainer containerWithWindow:window controller:controller key:nil andShouldReleaseOnClose:shouldRelease]];
+	[self manageContainer:[_CBHWindowManagerContainer containerWithWindow:window controller:controller key:nil andShouldReleaseOnClose:shouldRelease]];
 }
 
 - (void)manageController:(NSWindowController *)controller withKey:(NSString *)key
@@ -138,22 +138,22 @@ NS_ASSUME_NONNULL_END
 - (void)manageController:(NSWindowController *)controller withKey:(NSString *)key shouldRelease:(BOOL)shouldRelease
 {
 	NSWindow *window = [controller window];
-	[self manageContainer:[CBHWindowManagerContainer containerWithWindow:window controller:controller key:key andShouldReleaseOnClose:shouldRelease]];
+	[self manageContainer:[_CBHWindowManagerContainer containerWithWindow:window controller:controller key:key andShouldReleaseOnClose:shouldRelease]];
 }
 
 
 - (void)unmanageController:(NSWindowController *)controller
 {
-	CBHWindowManagerContainer *container = [_byController objectForKey:[NSValue valueWithNonretainedObject:controller]];
+	_CBHWindowManagerContainer *container = [_byController objectForKey:[NSValue valueWithNonretainedObject:controller]];
 	if ( !container ) { return; }
 
 	[self unmanageContainer:container];
 }
 
 
-#pragma mark Container Management
+#pragma mark - Container Management
 
-- (void)manageContainer:(CBHWindowManagerContainer *)container
+- (void)manageContainer:(_CBHWindowManagerContainer *)container
 {
 	[_byWindow setObject:container forKey:[container windowKey]];
 	
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_END
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:[container window]];
 }
 
-- (void)unmanageContainer:(CBHWindowManagerContainer *)container
+- (void)unmanageContainer:(_CBHWindowManagerContainer *)container
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[container window]];
 	[_byWindow removeObjectForKey:[container windowKey]];
@@ -176,14 +176,14 @@ NS_ASSUME_NONNULL_END
 	if ( key ) { [_byKey removeObjectForKey:key]; }
 }
 
-#pragma mark Notification Handlers
+#pragma mark - Notification Handlers
 
 - (void)windowWillClose:(NSNotification *)notification
 {
 	NSWindow *window = (NSWindow *)[notification object];
 	if ( !window ) { return; }
 
-	CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
+	_CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
 	if ( !container ) { return; }
 	if ( ![container shouldReleaseOnClose] ) { return; }
 
@@ -191,11 +191,11 @@ NS_ASSUME_NONNULL_END
 }
 
 
-#pragma mark Queries
+#pragma mark - Queries
 
 - (NSWindowController *)controllerForKey:(NSString *)key
 {
-	CBHWindowManagerContainer *container = [_byKey objectForKey:key];
+	_CBHWindowManagerContainer *container = [_byKey objectForKey:key];
 	if ( !container ) { return nil; }
 
 	return [container controller];
@@ -203,7 +203,7 @@ NS_ASSUME_NONNULL_END
 
 - (NSWindowController *)controllerForWindow:(NSWindow *)window
 {
-	CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
+	_CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
 	if ( !container ) { return nil; }
 
 	return [container controller];
@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_END
 
 - (NSWindow *)windowForKey:(NSString *)key
 {
-	CBHWindowManagerContainer *container = [_byKey objectForKey:key];
+	_CBHWindowManagerContainer *container = [_byKey objectForKey:key];
 	if ( !container ) { return nil; }
 
 	return [container window];
