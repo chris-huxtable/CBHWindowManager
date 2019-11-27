@@ -217,6 +217,7 @@ NS_ASSUME_NONNULL_END
 	return [container window];
 }
 
+
 - (BOOL)isManagingController:(NSWindowController *)controller
 {
 	return ( [_byController objectForKey:[NSValue valueWithNonretainedObject:controller]] != nil );
@@ -225,6 +226,11 @@ NS_ASSUME_NONNULL_END
 - (BOOL)isManagingWindow:(NSWindow *)window
 {
 	return ( [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]] != nil );
+}
+
+- (BOOL)isManagingWithKey:(NSString *)key
+{
+	return ( [_byKey objectForKey:key] != nil );
 }
 
 @end

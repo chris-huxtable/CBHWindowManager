@@ -169,6 +169,14 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (BOOL)isManagingWindow:(NSWindow *)window;
 
+/** Check if the given key manages a window or window controller.
+ *
+ * @param key           The key for check for.
+ *
+ * @return              Whether the given key is associated with a window or window controller thats managed by the receiver.
+ */
+- (BOOL)isManagingWithKey:(NSString *)key;
+
 @end
 
 NS_ASSUME_NONNULL_END
