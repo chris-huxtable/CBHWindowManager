@@ -161,7 +161,6 @@ NS_ASSUME_NONNULL_END
 	if ( [container controllerKey] != nil ) { [_byController setObject:container forKey:[container controllerKey]]; }
 	if ( [container key] != nil ) { [_byKey setObject:container forKey:[container key]]; }
 
-	if ( ![container shouldReleaseOnClose] ) { return; }
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:[container window]];
 }
 
@@ -184,6 +183,7 @@ NS_ASSUME_NONNULL_END
 {
 	NSWindow *window = (NSWindow *)[notification object];
 	if ( !window ) { return; }
+	if ( ![window isKindOfClass:[NSWindow class]] ) { return; }
 
 	_CBHWindowManagerContainer *container = [_byWindow objectForKey:[NSValue valueWithNonretainedObject:window]];
 	if ( !container ) { return; }
