@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBHWindowManager : NSObject
 
-
 #pragma mark - Shared Manager
 
 /**
@@ -144,14 +143,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable NSWindowController *)controllerForWindow:(NSWindow *)window;
 
-
 /** Have the receiver retrieve the managed window for a given key.
  *
- * @param key           The key for the window to requested.
+ * @param key           The key for the window requested.
  *
  * @return              The requested window controller or `nil` if not found.
  */
 - (nullable NSWindow *)windowForKey:(NSString *)key;
+
 
 /** Check is the given window controller is managed by the receiver.
  *
@@ -161,12 +160,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)isManagingController:(NSWindowController *)controller;
 
-/** Check is the given window is managed by the receiver.
-*
-* @param window        The window to check for.
-*
-* @return              Whether the given window  is managed by the receiver.
-*/
+/** Check if the given window is managed by the receiver.
+ *
+ * @param window        The window to check for.
+ *
+ * @return              Whether the given window is managed by the receiver.
+ */
 - (BOOL)isManagingWindow:(NSWindow *)window;
 
 /** Check if the given key manages a window or window controller.

@@ -75,6 +75,7 @@ NS_ASSUME_NONNULL_END
 	return self;
 }
 
+
 #pragma mark - Deallocation
 
 - (void)dealloc
@@ -175,6 +176,7 @@ NS_ASSUME_NONNULL_END
 	NSString *key = [container key];
 	if ( key ) { [_byKey removeObjectForKey:key]; }
 }
+
 
 #pragma mark - Notification Handlers
 
