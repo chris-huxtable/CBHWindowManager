@@ -32,6 +32,12 @@
 
 @end
 
+@interface CBHWindowManager (TESTING)
+
+- (void)windowWillClose:(NSNotification *)notification;
+
+@end
+
 
 @implementation CBHWindowManagerTests
 
@@ -144,6 +150,25 @@
 	customManager = nil;
 }
 
+- (void)test_windowDidClose
+{
+	[[CBHWindowManager sharedManager] manageWindow:_window shouldRelease:NO];
+	NSWindowStyleMask mask = (NSWindowStyleMaskTitled|NSWindowStyleMaskClosable);
+	NSWindow *window = [[NSWindow alloc] initWithContentRect:NSZeroRect styleMask:mask backing:NSBackingStoreBuffered defer:YES];
+
+	/// No Object
+	[[CBHWindowManager sharedManager] windowWillClose:[NSNotification notificationWithName:NSWindowWillCloseNotification object:nil]];
+
+	/// Wrong Object Type
+	[[CBHWindowManager sharedManager] windowWillClose:[NSNotification notificationWithName:NSWindowWillCloseNotification object:@"Invalid Object"]];
+
+	/// Non-Managed Window
+	[[CBHWindowManager sharedManager] windowWillClose:[NSNotification notificationWithName:NSWindowWillCloseNotification object:window]];
+
+	/// Managed Window that doesn't release
+	[[CBHWindowManager sharedManager] windowWillClose:[NSNotification notificationWithName:NSWindowWillCloseNotification object:_window]];
+}
+
 
 #pragma mark - Window Controllers
 
@@ -232,6 +257,20 @@
 
 	/// Unmanage already unmanaged controller
 	[[CBHWindowManager sharedManager] unmanageController:_controller];
+}
+
+
+#pragma mark - Keys
+
+- (void)test_managingKey
+{
+	[[CBHWindowManager sharedManager] manageController:_controller withKey:TEST_KEY];
+	XCTAssertTrue([[CBHWindowManager sharedManager] isManagingWithKey:TEST_KEY], @"There should be something managed with this key.");
+}
+
+- (void)test_notManagingKey
+{
+	XCTAssertFalse([[CBHWindowManager sharedManager] isManagingWithKey:@"Missing Key"], @"There should be nothing managed with this key.");
 }
 
 @end
