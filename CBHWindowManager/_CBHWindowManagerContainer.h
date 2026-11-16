@@ -16,8 +16,8 @@
 //  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 //  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-@import AppKit.NSWindow;
-@import AppKit.NSWindowController;
+#import <AppKit/NSWindow.h>
+#import <AppKit/NSWindowController.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

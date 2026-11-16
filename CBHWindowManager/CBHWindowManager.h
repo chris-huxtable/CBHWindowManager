@@ -16,13 +16,12 @@
 //  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 //  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-@import Foundation;
+#import <Foundation/Foundation.h>
+#import <AppKit/NSWindow.h>
+#import <AppKit/NSWindowController.h>
 
 FOUNDATION_EXPORT double CBHWindowManagerVersionNumber;
 FOUNDATION_EXPORT const unsigned char CBHWindowManagerVersionString[];
-
-@import AppKit.NSWindow;
-@import AppKit.NSWindowController;
 
 
 NS_ASSUME_NONNULL_BEGIN
