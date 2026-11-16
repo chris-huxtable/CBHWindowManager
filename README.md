@@ -1,7 +1,6 @@
 # CBHWindowManager
 
 [![release](https://img.shields.io/github/release/chris-huxtable/CBHWindowManager.svg)](https://github.com/chris-huxtable/CBHWindowManager/releases)
-[![pod](https://img.shields.io/cocoapods/v/CBHWindowManager.svg)](https://cocoapods.org/pods/CBHWindowManager)
 [![licence](https://img.shields.io/badge/licence-ISC-lightgrey.svg?cacheSeconds=2592000)](https://github.com/chris-huxtable/CBHWindowManager/blob/master/LICENSE)
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg?cacheSeconds=2592000)](https://github.com/chris-huxtable/CBHWindowManager)
 
